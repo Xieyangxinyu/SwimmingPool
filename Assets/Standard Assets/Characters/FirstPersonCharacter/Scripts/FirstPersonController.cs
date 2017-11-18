@@ -21,6 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public float By;
 		public float Bz;
 		public float speed;
+		public ParticleSystem hitEffect;
 
 		public Text countText;
 		private int count;
@@ -100,6 +101,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				count++;
 				SetCountText ();
+				Instantiate( hitEffect, hit.gameObject.transform.position,
+					hit.gameObject.transform.rotation );
 				hit.gameObject.SetActive(false);
 			}
 		}
