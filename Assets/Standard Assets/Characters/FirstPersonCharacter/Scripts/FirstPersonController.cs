@@ -102,7 +102,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				count++;
 				SetCountText ();
 				Instantiate( hitEffect, hit.gameObject.transform.position,
-					hit.gameObject.transform.rotation );
+					hitEffect.transform.rotation);
 				hit.gameObject.SetActive(false);
 			}
 		}

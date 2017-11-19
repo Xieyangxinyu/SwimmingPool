@@ -76,8 +76,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				camera.localRotation = Quaternion.Slerp (camera.localRotation, m_CameraTargetRot,
 					smoothTime * Time.deltaTime);
-				character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
-					smoothTime * Time.deltaTime);
+				character.localRotation = m_CharacterTargetRot;
+				//character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
+				//	smoothTime * Time.deltaTime);
 			}
 			else
 			{

@@ -1,5 +1,13 @@
 # SwimmingPool
 
+Version 18 Nov 2017 9.50pm
+Yangxinyu Xie
+
+Major Updates
+1. The visual effects of Bubbles and sands are modified
+
+-----------------------------------------------------------------------------------------
+
 Version 18 Nov 2017
 Yangxinyu Xie
 
