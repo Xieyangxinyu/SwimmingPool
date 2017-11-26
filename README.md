@@ -15,3 +15,13 @@ Major Updates
 
 1. A few more prefabs were added to the scene to make this swimming pool more playable
 2. The Spawn point of bubbles has been set randomized for Data Collection team
+
+-----------------------------------------------------------------------------------------
+Ricardo Velasquez
+
+New Branch: Randomization
+
+Updates:
+1. Improved the randomization algorithm
+2. Added the option to modify the initial amount of bubbles
+3. Added some lines to spawn a bubble when you hit an old bubble

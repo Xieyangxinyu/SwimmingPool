@@ -103,8 +103,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				SetCountText ();
 				Instantiate( hitEffect, hit.gameObject.transform.position,
 					hitEffect.transform.rotation);
-				hit.gameObject.SetActive(false);
-			}
+                Vector3 pos = new Vector3();
+                pos.x = Random.Range(1f, 20);
+                pos.y = Random.Range(1f, 20);
+                pos.z = Random.Range(1f, 20);
+                Instantiate(hit.gameObject, pos, Quaternion.identity);
+                hit.gameObject.SetActive(false);
+                Destroy(hit.gameObject);
+            }
 		}
 
 		private void SetCountText ()
