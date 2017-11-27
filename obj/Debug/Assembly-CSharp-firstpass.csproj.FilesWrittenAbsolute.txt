@@ -55,3 +55,4 @@
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/Unity.Cecil.Pdb.dll
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/Unity.Cecil.Mdb.dll
+/Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/Facebook.Unity.Settings.dll

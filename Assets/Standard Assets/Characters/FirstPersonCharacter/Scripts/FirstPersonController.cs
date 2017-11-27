@@ -17,9 +17,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private Vector3 m_MoveDir = Vector3.zero;
 		private CharacterController m_CharacterController;
 		private float m_StepCycle;
+
+		//Bx,By and Bz are space-control-variables
 		public float Bx;
 		public float By;
 		public float Bz;
+
+
 		public float speed;
 		public ParticleSystem hitEffect;
 
@@ -101,15 +105,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			{
 				count++;
 				SetCountText ();
-				Instantiate( hitEffect, hit.gameObject.transform.position,
-					hitEffect.transform.rotation);
+				hitEffect.transform.position = hit.gameObject.transform.position;
                 Vector3 pos = new Vector3();
-                pos.x = Random.Range(1f, 20);
-                pos.y = Random.Range(1f, 20);
-                pos.z = Random.Range(1f, 20);
-                Instantiate(hit.gameObject, pos, Quaternion.identity);
-                hit.gameObject.SetActive(false);
-                Destroy(hit.gameObject);
+                pos.x = Random.Range(1f, Bx);
+                pos.y = Random.Range(1f, By);
+                pos.z = Random.Range(1f, Bz);
+				hit.gameObject.transform.position = pos;
             }
 		}
 

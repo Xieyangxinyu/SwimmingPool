@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\BubbleManager.cs" />
      <Compile Include="Assets\Scripts\Count.cs" />
      <Compile Include="Assets\Scripts\PositionControl.cs" />
+     <Compile Include="Assets\Scripts\SpawnBubble.cs" />
      <Compile Include="Assets\Scripts\Underwater.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
@@ -78,6 +79,9 @@
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
+ <Reference Include="Facebook.Unity.Settings">
+ <HintPath>/Users/xieyangxinyu/Desktop/SwimmingPool/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
