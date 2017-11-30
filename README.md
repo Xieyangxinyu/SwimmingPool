@@ -1,5 +1,14 @@
 # SwimmingPool
 
+
+-----------------------------------------------------------------------------------------
+Version 29 Nov 2017
+Yangxinyu Xie
+
+Major Updates
+1. The bubble grabbing system are taken out of FirstPersonController and modified
+
+
 Version 18 Nov 2017 9.50pm
 Yangxinyu Xie
 

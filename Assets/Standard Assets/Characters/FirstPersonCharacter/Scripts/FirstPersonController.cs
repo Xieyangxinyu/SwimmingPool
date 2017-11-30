@@ -25,10 +25,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
 		public float speed;
-		public ParticleSystem hitEffect;
 
 		public Text countText;
-		private int count;
+		public GameObject count;
 
 		// Use this for initialization
 		private void Start()
@@ -36,7 +35,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_CharacterController = GetComponent<CharacterController>();
 			m_Camera = Camera.main;
 			m_MouseLook.Init(transform , m_Camera.transform);
-			count = 0;
+			count.transform.position = new Vector3(0f,0f,0f);
 			SetCountText ();
 		}
 
@@ -97,26 +96,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.LookRotation (transform, m_Camera.transform);
 		}
 
-
-		private void OnControllerColliderHit(ControllerColliderHit hit)
-		{
-			//Getting a bubble
-			if (hit.collider.tag == "Pick up")
-			{
-				count++;
-				SetCountText ();
-				hitEffect.transform.position = hit.gameObject.transform.position;
-                Vector3 pos = new Vector3();
-                pos.x = Random.Range(1f, Bx);
-                pos.y = Random.Range(1f, By);
-                pos.z = Random.Range(1f, Bz);
-				hit.gameObject.transform.position = pos;
-            }
-		}
-
 		private void SetCountText ()
 		{
-			countText.text = "Count: " + count.ToString ();
+			countText.text = "Count: " + count.transform.position.x.ToString ();
 		}
 	}
 }
