@@ -5,6 +5,10 @@ Yangxinyu Xie
 
 Major Updates
 1. VR adaptation Plugged in
+2. You can edit Spawn GameObject as you like to create your map generation function
+3. You can get the position and rotation of the avatar by script FirstPersonData under FPSController
+
+PS: You can simply record data from the camera because children class inherit properties from their father
 
 -----------------------------------------------------------------------------------------
 

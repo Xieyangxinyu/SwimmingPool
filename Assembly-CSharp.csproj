@@ -54,8 +54,8 @@
      <Compile Include="Assets\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Scripts\BubbleManager.cs" />
      <Compile Include="Assets\Scripts\Count.cs" />
+     <Compile Include="Assets\Scripts\FirstPersonData.cs" />
      <Compile Include="Assets\Scripts\PositionControl.cs" />
-     <Compile Include="Assets\Scripts\SpawnBubble.cs" />
      <Compile Include="Assets\Scripts\Underwater.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />

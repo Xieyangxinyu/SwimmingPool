@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PositionControl : MonoBehaviour {
 
+	//Bx,By and Bz are boundary-control-variables
 	public float Bx;
 	public float By;
 	public float Bz;
 
-	// Update Spawnpoints
+	// Update Position
 	void Update () {
 		Vector3 pos = new Vector3 ();
 		pos.x = Random.Range (1f, Bx - 1);

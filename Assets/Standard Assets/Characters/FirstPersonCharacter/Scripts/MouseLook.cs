@@ -6,6 +6,7 @@ using UnityEngine.XR;
 namespace UnityStandardAssets.Characters.FirstPerson
 {
 	[Serializable]
+	// Don't mess with MouseLook if you are working on DataCollection or MapGeneration
 	public class MouseLook
 	{
 		public float XSensitivity = 2;
@@ -44,6 +45,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			float yRot;
 			float xRot;
+			//VR
 			if (XRDevice.isPresent) {
 				float dirx, diry;
 				InputTracking.disablePositionalTracking = true;
@@ -75,8 +77,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 count.transform.position = new Vector3(preRoty, yRot, diry);
 				m_CameraTargetRot *= Quaternion.Euler (dirx, 0f, 0f);
 				m_CharacterTargetRot *= Quaternion.Euler (0f, diry, 0f);
+			} 
 
-			} else {
+			// Mouse and Trackpad
+			else {
 				yRot = CrossPlatformInputManager.GetAxis ("Mouse X");
 				xRot = CrossPlatformInputManager.GetAxis ("Mouse Y");
 

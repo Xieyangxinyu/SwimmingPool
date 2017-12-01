@@ -14,25 +14,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	{
 		[SerializeField] private MouseLook m_MouseLook;
 
+		//m_Camera is the camera inside FirstPersonCharacter
+		//m_MoveDir is a vector<x,y,z> indicating the first person's (moving direction * moving speed)
+		//m_CharacterController is the CharacterController(in Physics) in FPSController
 		private Camera m_Camera;
 		private Vector3 m_MoveDir = Vector3.zero;
 		private CharacterController m_CharacterController;
 		private float m_StepCycle;
 
-		//Bx,By and Bz are space-control-variables
+		//Bx,By and Bz are boundary-control-variables
 		public float Bx;
 		public float By;
 		public float Bz;
 
-
+		//FirstPerson moving spead
 		public float speed;
 
+		//countText is the GUI element shows the number of bubbles caught
+		//count GameObject records the number of bubbles caught in its Position x
 		public Text countText;
 		public GameObject count;
 
 		// Use this for initialization
 		private void Start()
 		{
+			//Initial Set-up
 			m_CharacterController = GetComponent<CharacterController>();
 			m_Camera = Camera.main;
 			m_MouseLook.Init(transform , m_Camera.transform);
@@ -50,6 +56,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		private void FixedUpdate()
 		{
+			//moveDirection records the forward direct of the m_Camera
+			//presentPosition records the current position of the m_Camera and is used to check if the avatar is out of the boundary
 			Vector3 moveDirection = m_Camera.transform.forward;
 			Vector3 presentPosition = m_Camera.transform.position;
 
@@ -77,10 +85,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MoveDir.z = moveDirection.z*speed;
 			m_MoveDir.y = moveDirection.y*speed;
 
+			//update Character Position
 			m_CharacterController.Move(m_MoveDir * Time.fixedDeltaTime);
 
+			//update Camera Position
 			UpdateCameraPosition(speed);
 
+			//Don't mind it if you are working on DataCollection or MapGeneration
 			m_MouseLook.UpdateCursorLock();
 		}
 
@@ -92,11 +103,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_Camera.transform.localPosition = newCameraPosition;
 		}
 
+		//Rotate View by reading inputs from VR headset or Trackpad
 		private void RotateView()
 		{
 			m_MouseLook.LookRotation (transform, m_Camera.transform);
 		}
 
+		//Update countText GUI element
 		private void SetCountText ()
 		{
 			countText.text = "Count: " + count.transform.position.x.ToString ();

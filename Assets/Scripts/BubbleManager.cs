@@ -2,14 +2,16 @@
 
 public class BubbleManager : MonoBehaviour
 {
-	public GameObject bubble;                // The enemy prefab to be spawned.
+	public GameObject bubble;                // The bubble prefab to be spawned.
 	public float spawnTime = 3f;            // How long between each spawn.
-	public Transform spawnPoints;         // An array of the spawn points this enemy can spawn from.
-    public float initBubbles;           //Initial amount of bubbbles
-    public float Bx;
+	public Transform spawnPoints;         // An array of the spawn points this bubble can spawn from.
+    public float initBubbles;           //Initial amount of bubbles
+	public float Bx;                   //Bx,By and Bz are boundary-control-variables
     public float By;
     public float Bz;
 
+	// You may edit this entire thing to make it a read-file function to import maps
+	// More information about spawn can be found on Unity Tutorial Series
     void Start ()
 	{
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.

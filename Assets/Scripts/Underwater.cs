@@ -5,12 +5,13 @@ using UnityEngine;
 public class Underwater : MonoBehaviour {
 	public float waterLevel;
 	private Color underwaterColor;
-	// Use this for initialization
+
+	// Use this for initialization of fog color
 	void Start () {
 		underwaterColor = new Color(0.22f, 0.65f, 0.77f, 0.5f);
 	}
 
-	// Update is called once per frame
+	// Show fog if the FirstPerson is under water level
 	void Update () {
 		if(transform.position.y < waterLevel)
 			setUnderwater ();
