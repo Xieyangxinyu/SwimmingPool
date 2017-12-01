@@ -17,6 +17,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public bool lockCursor = true;
 		public int Cycle = 200;
 		public float mini = 0.5f;
+        public GameObject count;
 
 		private Camera m_Camera;
 		private Quaternion previousX;
@@ -50,27 +51,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
 				Quaternion input = InputTracking.GetLocalRotation (XRNode.CenterEye);
 				xRot = input.eulerAngles.x;
 				yRot = input.eulerAngles.y;
-				if (!start) {
+				if (!start && yRot!=0) {
+                    preRotx = xRot;
 					preRoty = yRot;
 					start = true;
 				}
-				if (xRot < 10 || xRot > 350)
-					xRot = preRotx;
-				if (preRoty - yRot > -10 && preRoty - yRot < 10)
-					yRot = preRoty;
-				if (xRot > 10 && xRot < 90)
-					dirx = (xRot - 10);
-				else if (xRot > 270 && xRot < 350)
-					dirx = 270 - xRot;
+                yRot -= preRoty;
+                if (yRot < 0) yRot += 360;
+                xRot -= preRotx;
+                if (xRot < 0) xRot += 360;
+				if (xRot > 15 && xRot < 90)
+					dirx = mini * 0.5f;
+				else if (xRot > 270 && xRot < 345)
+					dirx = 0 - mini * 0.5f;
 				else
 					dirx = 0;
-				if (yRot - preRoty > 0)
-					diry = 10;
-				else if (yRot - preRoty < 0)
-					diry = -2;
+				if (yRot > 20 && yRot < 180)
+					diry = mini * 0.5f;
+				else if (yRot > 180 && yRot <340)
+					diry = 0 - mini * 0.5f;
 				else
 					diry = 0;
-				
+                count.transform.position = new Vector3(preRoty, yRot, diry);
 				m_CameraTargetRot *= Quaternion.Euler (dirx, 0f, 0f);
 				m_CharacterTargetRot *= Quaternion.Euler (0f, diry, 0f);
 
