@@ -5,6 +5,7 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using UnityEngine.XR;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {

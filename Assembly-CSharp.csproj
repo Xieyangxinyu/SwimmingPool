@@ -51,7 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BubbleController.cs" />
+     <Compile Include="Assets\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Scripts\BubbleManager.cs" />
      <Compile Include="Assets\Scripts\Count.cs" />
      <Compile Include="Assets\Scripts\PositionControl.cs" />

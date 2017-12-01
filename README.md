@@ -1,5 +1,13 @@
 # SwimmingPool
 
+Version 1 Dec 2017
+Yangxinyu Xie
+
+Major Updates
+1. VR adaptation Plugged in
+
+-----------------------------------------------------------------------------------------
+
 Version 29 Nov 2017
 Yangxinyu Xie
 

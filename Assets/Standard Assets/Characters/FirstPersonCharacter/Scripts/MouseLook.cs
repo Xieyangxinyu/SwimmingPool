@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.XR;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -9,15 +10,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	{
 		public float XSensitivity = 2;
 		public float YSensitivity = 2;
-		public bool clampVerticalRotation = true;
-		public float MinimumX = -90F;
-		public float MaximumX = 90F;
+		public float MinimumX = -80F;
+		public float MaximumX = 80F;
 		public bool smooth;
 		public float smoothTime = 5f;
 		public bool lockCursor = true;
 		public int Cycle = 200;
 		public float mini = 0.5f;
 
+		private Camera m_Camera;
 		private Quaternion previousX;
 		private Quaternion previousY;
 		private Quaternion m_CameraTargetRot;
@@ -26,62 +27,96 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private int prey = 0;
 		private int asy = 0;
 		private int cnty = 0;
+		private float preRotx = 0;
+		private float preRoty = 0;
+		private bool start = false;
 
 		public void Init(Transform character, Transform camera)
 		{
 			m_CharacterTargetRot = character.localRotation;
+			m_Camera = Camera.main;
 			m_CameraTargetRot = camera.localRotation;
 			previousX = Quaternion.Euler (0f, 0f, 0f);
 		}
 
 		public void LookRotation(Transform character, Transform camera)
 		{
-			float yRot = CrossPlatformInputManager.GetAxis("Mouse X");
-			float xRot = CrossPlatformInputManager.GetAxis("Mouse Y");
+			float yRot;
+			float xRot;
+			if (XRDevice.isPresent) {
+				float dirx, diry;
+				InputTracking.disablePositionalTracking = true;
+				XRDevice.DisableAutoXRCameraTracking(m_Camera,true);
+				Quaternion input = InputTracking.GetLocalRotation (XRNode.CenterEye);
+				xRot = input.eulerAngles.x;
+				yRot = input.eulerAngles.y;
+				if (!start) {
+					preRoty = yRot;
+					start = true;
+				}
+				if (xRot < 10 || xRot > 350)
+					xRot = preRotx;
+				if (preRoty - yRot > -10 && preRoty - yRot < 10)
+					yRot = preRoty;
+				if (xRot > 10 && xRot < 90)
+					dirx = (xRot - 10);
+				else if (xRot > 270 && xRot < 350)
+					dirx = 270 - xRot;
+				else
+					dirx = 0;
+				if (yRot - preRoty > 0)
+					diry = 10;
+				else if (yRot - preRoty < 0)
+					diry = -2;
+				else
+					diry = 0;
+				
+				m_CameraTargetRot *= Quaternion.Euler (dirx, 0f, 0f);
+				m_CharacterTargetRot *= Quaternion.Euler (0f, diry, 0f);
 
-			m_CameraTargetRot *= Quaternion.Euler ((0f - xRot) * 2, 0f, 0f);
+			} else {
+				yRot = CrossPlatformInputManager.GetAxis ("Mouse X");
+				xRot = CrossPlatformInputManager.GetAxis ("Mouse Y");
 
-			//Rotation around axis y
-			if (yRot * asy > 0)
-				yRot = 0f;
-			else
-				asy = 0;
+				m_CameraTargetRot *= Quaternion.Euler ((0f - xRot) * 2, 0f, 0f);
 
-			if(yRot < 0.1 && yRot > -0.1)
-				yRot = 0;
+				//Rotation around axis y
+				if (yRot * asy > 0)
+					yRot = 0f;
+				else
+					asy = 0;
 
-			if (cnty < Cycle) {
-				m_CharacterTargetRot *= previousX;
-				cnty++;
+				if (yRot < 0.1 && yRot > -0.1)
+					yRot = 0;
+		
+				if (cnty < Cycle) {
+					m_CharacterTargetRot *= previousX;
+					cnty++;
+				}
+				if (cnty == Cycle)
+					prey = 0;
+				if (yRot > 0 && prey < 1) {
+					asy = 1;
+					prey++;
+				} else if (yRot < 0 && prey > -1) {
+					asy = -1;
+					prey--;
+				}
+				if (yRot != 0) {
+					previousX = Quaternion.Euler (0f, prey * mini, 0f);
+					cnty = 0;
+				}
 			}
 
-			if (cnty == Cycle)
-				prey = 0;
-			if (yRot > 0 && prey < 1) {
-				asy = 1; prey ++;
-			}
-			else if (yRot < 0 && prey > -1) {
-				asy = -1; prey --;
-			}
-			if (yRot != 0) {
-				previousX = Quaternion.Euler (0f, prey * mini, 0f);
-				cnty = 0;
-			}
+			m_CameraTargetRot = ClampRotationAroundXAxis (m_CameraTargetRot);
 
-
-			if (clampVerticalRotation) 
-				m_CameraTargetRot = ClampRotationAroundXAxis (m_CameraTargetRot);
-
-			if(smooth)
-			{
+			if (smooth) {
 				camera.localRotation = Quaternion.Slerp (camera.localRotation, m_CameraTargetRot,
 					smoothTime * Time.deltaTime);
 				character.localRotation = m_CharacterTargetRot;
 				//character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
 				//	smoothTime * Time.deltaTime);
-			}
-			else
-			{
+			} else {
 				camera.localRotation = m_CameraTargetRot;
 				character.localRotation = m_CharacterTargetRot;
 			}
