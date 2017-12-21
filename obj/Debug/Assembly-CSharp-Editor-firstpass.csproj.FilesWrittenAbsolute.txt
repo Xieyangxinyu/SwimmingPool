@@ -106,3 +106,5 @@
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/UnityEditor.iOS.Extensions.Common.dll
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/UnityEditor.iOS.Extensions.Common.dll.mdb
 /Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/Facebook.Unity.Settings.dll
+/Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/xieyangxinyu/Desktop/SwimmingPool/Temp/bin/Debug/UnityEngine.StandardEvents.dll
