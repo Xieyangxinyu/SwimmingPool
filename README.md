@@ -1,5 +1,13 @@
 # SwimmingPool
 
+Version 21 Dec 2017
+Yangxinyu Xie
+
+Major Updates
+1. More Underwater prefabs added
+
+-----------------------------------------------------------------------------------------
+
 Version 1 Dec 2017
 Yangxinyu Xie
 
