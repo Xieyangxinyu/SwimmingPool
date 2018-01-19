@@ -2,12 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
-using System.Xml.Serialization;
-using System.IO;
 using UnityEngine.XR;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -24,8 +21,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private Vector3 m_MoveDir = Vector3.zero;
 		private CharacterController m_CharacterController;
 		private float m_StepCycle;
-        public GameObject FirstPersonCharacter;
-        private List<string> datalist; //for saving data
 
 		//Bx,By and Bz are boundary-control-variables
 		public float Bx;
@@ -49,21 +44,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
 			count.transform.position = new Vector3(0f,0f,0f);
 			SetCountText ();
-            datalist = new List<string>();
 		}
 
-        void OnApplicationQuit() //save function
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
-            FileStream stream = new FileStream(Application.dataPath + "\\bubblepickupdata.xml", FileMode.Create);
-            serializer.Serialize(stream, datalist);
-            stream.Close();
-        }
 
-
-
-        // Update is called once per frame
-        private void Update()
+		// Update is called once per frame
+		private void Update()
 		{
 			Vector3 moveDirection = m_Camera.transform.forward;
 			RotateView();
@@ -129,20 +114,5 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		{
 			countText.text = "Count: " + count.transform.position.x.ToString ();
 		}
-
-        private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            //Getting a bubble
-            if (hit.collider.tag == "Pick up")
-            {
-                //count++;
-                //SetCountText();
-                //Instantiate(hitEffect, hit.gameObject.transform.position,
-                    //hitEffect.transform.rotation);
-                //hit.gameObject.SetActive(false);
-                datalist.Add("Bubble popped at " + FirstPersonCharacter.transform.position.ToString() + " at time " + DateTime.Now.ToString("hh:mm:ss tt"));
-            }
-        }
-
-    }
+	}
 }

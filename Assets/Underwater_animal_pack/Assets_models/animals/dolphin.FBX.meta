@@ -2,49 +2,17 @@ fileFormatVersion: 2
 guid: b3a1bb8f9ce6a51499a4669461711dae
 labels:
 - dolphin
-timeCreated: 281412841113856
+timeCreated: 18446744011573954816
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
-    100000: Bone001
-    100002: Bone002
-    100004: Bone003
-    100006: Bone004
-    100008: Bone005
-    100010: Bone006
-    100012: Bone007
-    100014: Bone008
-    100016: Bone009
-    100018: Bone010
-    100020: Bone011
-    100022: Bone012
-    100024: Bone013
-    100026: //RootNode
-    100028: dolphin_exp4
-    400000: Bone001
-    400002: Bone002
-    400004: Bone003
-    400006: Bone004
-    400008: Bone005
-    400010: Bone006
-    400012: Bone007
-    400014: Bone008
-    400016: Bone009
-    400018: Bone010
-    400020: Bone011
-    400022: Bone012
-    400024: Bone013
-    400026: //RootNode
-    400028: dolphin_exp4
     4300000: dolphin_exp4
-    7400000: swim
-    7400002: eat
-    11100000: //RootNode
-    13700000: dolphin_exp4
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 3
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -57,12 +25,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: swim
@@ -126,13 +96,18 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 1
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -142,6 +117,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
