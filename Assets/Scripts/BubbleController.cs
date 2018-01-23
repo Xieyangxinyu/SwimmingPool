@@ -13,12 +13,15 @@ public class BubbleController : MonoBehaviour {
 	//hitEffect is the visual effect after a bubble gets hit
 	public ParticleSystem hitEffect;
 
-	//You can import scripts here to record datas
-	//The following function only works when bubbles collide with other things
-	//For more information, OnTriggerEnter(Collider hit) can be find in the Unity API
-	void OnTriggerEnter(Collider hit){
+
+    //You can import scripts here to record datas
+    //The following function only works when bubbles collide with other things
+    //For more information, OnTriggerEnter(Collider hit) can be find in the Unity API
+
+    void OnTriggerEnter(Collider hit){
 		//if the bubble hits the FirstPerson
 		if (hit.tag == "Player") {
+
 			//Initiate visual effect after a bubble gets hit
 			hitEffect.transform.position = transform.position;
 

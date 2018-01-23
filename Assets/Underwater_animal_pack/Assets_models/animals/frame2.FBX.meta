@@ -4,9 +4,25 @@ timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: Object001
+    100004: Plane001
+    400000: //RootNode
+    400002: Object001
+    400004: Plane001
+    2300000: Object001
+    2300002: Plane001
+    3300000: Object001
+    3300002: Plane001
     4300000: Plane001
     4300002: Object001
-  externalObjects: {}
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 1778afe6c319f524aa2dadf43aa63967, type: 2}
   materials:
     importMaterials: 1
     materialName: 3

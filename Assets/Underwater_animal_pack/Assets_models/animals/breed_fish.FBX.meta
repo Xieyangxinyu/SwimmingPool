@@ -4,8 +4,37 @@ timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: Bone01
+    100002: Bone02
+    100004: Bone03
+    100006: Bone04
+    100008: Bone05
+    100010: Bone06
+    100012: Bone07
+    100014: Bone08
+    100016: //RootNode
+    100018: default
+    400000: Bone01
+    400002: Bone02
+    400004: Bone03
+    400006: Bone04
+    400008: Bone05
+    400010: Bone06
+    400012: Bone07
+    400014: Bone08
+    400016: //RootNode
+    400018: default
     4300000: default
-  externalObjects: {}
+    7400000: swim
+    7400002: fastswim
+    11100000: //RootNode
+    13700000: default
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: default
+    second: {fileID: 2100000, guid: 33ee387547edabe438c1fd9043701f88, type: 2}
   materials:
     importMaterials: 1
     materialName: 3
