@@ -9,11 +9,13 @@ public class nav : MonoBehaviour {
 	NavMeshAgent navi;
 	// Use this for initialization
 	void Start () {
-		navi = GetComponent<NavMeshAgent> ();
+		navi = GetComponent <NavMeshAgent> ();
+		navi.SetDestination (new Vector3 (0, 0, 0));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		navi.SetDestination (target.transform.position);
+		this.transform.rotation = target.transform.rotation;
 	}
 }
