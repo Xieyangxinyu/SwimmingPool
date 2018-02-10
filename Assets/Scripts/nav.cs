@@ -17,7 +17,7 @@ public class nav : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animation> ();
-		moveSpeed = 0.3f;
+		moveSpeed = 1f;
 		pos = new Vector3();
 		pos.x = Random.Range(-50, 50);
 		pos.y = Random.Range(1f, 40);
@@ -31,16 +31,13 @@ public class nav : MonoBehaviour {
 		if (temp < 15) {
 			anim.CrossFade ("eat");
 		}
-		else if(temp < 50){
-			moveSpeed = 1f;
+		else if(temp < 500){
+			moveSpeed = 2f;
 			anim.CrossFade ("fastswim");
 		}
-		else if (temp > 100) {
+		else {
 			targetR = pos - transform.position;
 			moveSpeed = 1f;
-			anim.CrossFade ("swim");
-		} else {
-			moveSpeed = 0.5f;
 			anim.CrossFade ("swim");
 		}
 		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetR), rotationSpeed * Time.deltaTime);
@@ -53,6 +50,7 @@ public class nav : MonoBehaviour {
 			count.transform.position = new Vector3 (0f, 0f, 0f);
 		}
 		if (hit.tag == "shark") {
+			moveSpeed = 10f;
 			transform.position -= transform.forward * Time.deltaTime * moveSpeed;
 		}
 	}
