@@ -53,11 +53,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Scripts\BubbleManager.cs" />
-     <Compile Include="Assets\Scripts\Count.cs" />
      <Compile Include="Assets\Scripts\FirstPersonData.cs" />
      <Compile Include="Assets\Scripts\nav.cs" />
      <Compile Include="Assets\Scripts\PositionControl.cs" />
      <Compile Include="Assets\Scripts\Underwater.cs" />
+     <Compile Include="Assets\Scripts\WhitePage.cs" />
      <Compile Include="Assets\Underwater_animal_pack\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <None Include="Assets\Underwater_FX\Underwater_FX_Documentation.txt" />
      <None Include="Assets\Underwater_animal_pack\README.txt" />

@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class nav : MonoBehaviour {
 
-	public GameObject target;
+	public FirstPersonController target;
 	public float rotationSpeed;
 	private float moveSpeed;
 	public Animation anim;
 	private Vector3 targetR;
 	private int WTime;
 	private Vector3 pos;
-	public GameObject count;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animation> ();
 		moveSpeed = 1f;
 		pos = new Vector3();
-		pos.x = Random.Range(-50, 50);
+		pos.x = Random.Range(0, 320);
 		pos.y = Random.Range(1f, 40);
-		pos.z = Random.Range(-50, 50);
+		pos.z = Random.Range(0, 320);
 	}
 
 	// Update is called once per frame
@@ -46,8 +46,8 @@ public class nav : MonoBehaviour {
 	void OnTriggerEnter(Collider hit){
 		//if the bubble hits the FirstPerson
 		if (hit.tag == "Player") {
-			hit.transform.position = new Vector3(10f, 10f, 10f);
-			count.transform.position = new Vector3 (0f, 0f, 0f);
+			hit.transform.position = new Vector3(20f, 10f, 20f);
+			target.count = 0;
 		}
 		if (hit.tag == "shark") {
 			moveSpeed = 10f;

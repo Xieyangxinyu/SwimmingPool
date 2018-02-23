@@ -21,7 +21,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		private Vector3 m_MoveDir = Vector3.zero;
 		private CharacterController m_CharacterController;
 		private float m_StepCycle;
-
 		//Bx,By and Bz are boundary-control-variables
 		public float Bx;
 		public float By;
@@ -33,7 +32,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		//countText is the GUI element shows the number of bubbles caught
 		//count GameObject records the number of bubbles caught in its Position x
 		public Text countText;
-		public GameObject count;
+		public int count;
 
 		// Use this for initialization
 		private void Start()
@@ -42,7 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_CharacterController = GetComponent<CharacterController>();
 			m_Camera = Camera.main;
 			m_MouseLook.Init(transform , m_Camera.transform);
-			count.transform.position = new Vector3(0f,0f,0f);
+			count = 0;
 			SetCountText ();
 		}
 
@@ -112,7 +111,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		//Update countText GUI element
 		private void SetCountText ()
 		{
-			countText.text = "Count: " + count.transform.position.x.ToString ();
+			countText.text = "Count: " + count.ToString ();
 		}
 	}
 }

@@ -1,49 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class BubbleManager : MonoBehaviour
 {
-	public GameObject bubble;                // The bubble prefab to be spawned.
-    public int initBubbles;           //Initial amount of bubbles
-	public float Bx;                   //Bx,By and Bz are boundary-control-variables
-    public float By;
-    public float Bz;
+	public BubbleController bubble;                // The bubble prefab to be spawned.
+	public nav shark;
+	public FirstPersonController player;
+	public int init;
     public int destroyTime; //Set how often the bubbles are going to be destroyed
 	public GameObject[] Fishes;
-    private float second = 1; //Seconds
-    public float spawnRate = 1; //Used to spawn a bubble based on the update of the seconds
-
-	// You may edit this entire thing to make it a read-file function to import maps
-	// More information about spawn can be found on Unity Tutorial Series
-    private void Update()
-    {
-        //Update the seconds
-        second = second + Time.deltaTime * 10;
-        //Spawn 1 fish per second
-        if(second > spawnRate*10)
-        {
-            Spawn(1);
-            spawnRate++;
-        }
-    }
-
-    //Method that destroyes the bubble after certain time
-    IEnumerator Death(GameObject obj)
-    {
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(obj);
-    }
+    
+	void Start(){
+		for (int i = 0; i < init; i++) {
+			Spawn (i);
+		}
+		Instantiate (shark, bubble.randomV(50,50), Quaternion.identity);
+	}
 
     void Spawn (int fishNumber)
 	{
-        Vector3 pos = new Vector3();
-        pos.x = Random.Range(1f, Bx - 1);
-        pos.y = Random.Range(1f, By - 1);
-        pos.z = Random.Range(1f, Bz - 1);
         // Create an instance of the bubble prefab at the randomly selected spawn point's position and rotation.
-        GameObject thisbubble = Instantiate (bubble, pos, Quaternion.identity);
+		fishNumber %= 10;
+		Vector3 pos = bubble.randomV(player.Bx,player.Bz);
+		BubbleController thisbubble = Instantiate (bubble, pos, Quaternion.identity);
 		Instantiate (Fishes [fishNumber], pos, Quaternion.identity).transform.SetParent (thisbubble.transform);
-        //Set timer for the bubble to die
-        StartCoroutine(Death(thisbubble));
+		thisbubble.fishPoint = fishNumber + 1;
+		//setup lifetime
+		thisbubble.LifeTime = Time.time;
     }
+
+	float min(float a,float b){
+		if (a < b)
+			return a;
+		else
+			return b;
+	}
+	float max(float a,float b){
+		if (a > b)
+			return a;
+		else
+			return b;
+	}
 }
