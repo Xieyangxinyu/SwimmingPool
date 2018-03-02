@@ -18,7 +18,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		public bool lockCursor = true;
 		public int Cycle = 200;
 		public float mini = 0.5f;
-        public GameObject count;
 
 		private Camera m_Camera;
 		private Quaternion previousX;
@@ -74,7 +73,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 					diry = 0 - mini * 0.5f;
 				else
 					diry = 0;
-                count.transform.position = new Vector3(preRoty, yRot, diry);
 				m_CameraTargetRot *= Quaternion.Euler (dirx, 0f, 0f);
 				m_CharacterTargetRot *= Quaternion.Euler (0f, diry, 0f);
 			} 

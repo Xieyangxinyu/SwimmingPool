@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class nav : MonoBehaviour {
 
 	public FirstPersonController target;
+	AudioSource scream;
 	public float rotationSpeed;
 	private float moveSpeed;
 	public Animation anim;
@@ -17,6 +18,7 @@ public class nav : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animation> ();
+		scream = GetComponent <AudioSource> ();
 		moveSpeed = 1f;
 		pos = new Vector3();
 		pos.x = Random.Range(0, 320);
@@ -26,6 +28,10 @@ public class nav : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (scream.isPlaying) {
+			target.transform.position = new Vector3 (20f, 10f, 20f);
+			return;
+		}
 		targetR = target.transform.position - transform.position;
 		float temp = targetR.x * targetR.x + targetR.y * targetR.y + targetR.z * targetR.z;
 		if (temp < 15) {
@@ -46,6 +52,7 @@ public class nav : MonoBehaviour {
 	void OnTriggerEnter(Collider hit){
 		//if the bubble hits the FirstPerson
 		if (hit.tag == "Player") {
+			scream.Play ();
 			hit.transform.position = new Vector3(20f, 10f, 20f);
 			target.count = 0;
 		}
