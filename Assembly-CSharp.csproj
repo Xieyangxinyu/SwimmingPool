@@ -58,12 +58,10 @@
      <Compile Include="Assets\Scripts\PositionControl.cs" />
      <Compile Include="Assets\Scripts\Underwater.cs" />
      <Compile Include="Assets\Scripts\WhitePage.cs" />
-     <Compile Include="Assets\Underwater_animal_pack\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <None Include="Assets\Underwater_FX\Underwater_FX_Documentation.txt" />
      <None Include="Assets\Underwater_animal_pack\README.txt" />
      <None Include="Assets\Jiggly Bubble Free\readme_Jiggly_Bubble_Free.txt" />
      <None Include="Assets\Underwater_FX\Shaders\AlphaSelfIllum_NoFog.shader" />
-     <None Include="Assets\Underwater Plants v2\Readme.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/xieyangxinyu/Desktop/SwimmingPool/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
