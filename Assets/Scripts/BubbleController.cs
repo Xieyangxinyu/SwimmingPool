@@ -7,10 +7,9 @@ public class BubbleController : MonoBehaviour {
 	//Bx,By and Bz are boundary-control-variables
 	public FirstPersonController player;
 	//hitEffect is the visual effect after a bubble gets hit
-	public ParticleSystem hitEffect;
 	public int fishPoint;
 	public float LifeTime;
-	public float interval;
+	private float interval;
 
 	void Start(){
 		interval = Random.Range (10f, 15f);
@@ -31,9 +30,7 @@ public class BubbleController : MonoBehaviour {
     void OnTriggerEnter(Collider hit){
 		//if the bubble hits the FirstPerson
 		if (hit.tag == "Player") {
-
-			//Initiate visual effect after a bubble gets hit
-			hitEffect.transform.position = transform.position;
+			
 			player.count += fishPoint;
 			positionSwap ();
 			//Change the position of this bubble that got hit

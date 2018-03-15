@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/nav.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BubbleController.cs">
     <Files>
-      <File FileName="Assets/Scripts/nav.cs" Line="56" Column="21" />
+      <File FileName="Assets/Scripts/BubbleController.cs" Line="11" Column="8" />
+      <File FileName="Assets/Scripts/nav.cs" Line="1" Column="1" />
       <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="25" Column="10" />
-      <File FileName="Assets/Scripts/BubbleManager.cs" Line="18" Column="2" />
-      <File FileName="Assets/Scripts/WhitePage.cs" Line="17" Column="7" />
+      <File FileName="Assets/Scripts/BubbleManager.cs" Line="30" Column="20" />
+      <File FileName="Assets/Scripts/WhitePage.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
