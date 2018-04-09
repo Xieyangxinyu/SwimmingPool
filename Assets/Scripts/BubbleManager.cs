@@ -17,6 +17,9 @@ public class BubbleManager : MonoBehaviour
 	public GameObject[] Fishes;
     private string nametime; //used to name the save file
     private List<string> datalist; //list of strings which will be saved
+    //private StreamWriter writespawn;
+    //private StreamWriter writedespawn;
+
 
     void Start(){
         nametime = DateTime.Now.ToString("hh-mm-ss-tt-MM-dd-yyyy");
@@ -25,8 +28,7 @@ public class BubbleManager : MonoBehaviour
 			Spawn (i);
 		}
 		Instantiate (shark, bubble.randomV(50,50), Quaternion.identity);
-        
-        
+        //writespawn = new System.IO.StreamWriter("C:\\Data Collection\\" + nametime + "-bubble-spawn-data" + ".txt", true);
     }
 
 
@@ -41,10 +43,17 @@ public class BubbleManager : MonoBehaviour
         fishNumber %= 10;
 		Vector3 pos = bubble.randomV(player.Bx,player.Bz);
 
-        datalist.Add(DateTime.Now.ToString("hh:mm:ss tt"));
-        datalist.Add(pos.x.ToString());
-        datalist.Add(pos.y.ToString());
-        datalist.Add(pos.z.ToString());
+        string realtime = DateTime.Now.ToString("hh:mm:ss tt");
+        string px = pos.x.ToString();
+        string py = pos.y.ToString();
+        string pz = pos.z.ToString();
+        datalist.Add(realtime);
+        datalist.Add(px);
+        datalist.Add(py);
+        datalist.Add(pz);
+
+        
+        //writespawn.WriteLine("" + realtime + "    " + px + "          " + py + "          " + pz + "          ");
 
         FileStream stream2 = new FileStream("C:\\Data Collection\\" + nametime + "-bubble-spawn-data" + ".xml", FileMode.Create); //creates a new file, overwriting existing data
         serializer.Serialize(stream2, datalist); //puts all the data from "datalist" into the xml file
