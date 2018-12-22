@@ -1,5 +1,9 @@
 # SwimmingPool
 
+## This project has been redesigned by an OO approach. To view our new repository and learn more about our research, please visit https://github.com/Xieyangxinyu/ScubaDiving.
+
+#### Dr. Zoltan Nadasdy
+#### Yangxinyu Xie, Ricardo Velasquez, Jacod Quinn
 Version 10 Feb 2018
 Yangxinyu Xie
 
